@@ -26,6 +26,7 @@ export class SignupComponent implements OnInit {
       console.log('User is saved ' + data);
     },
       err => {
+        //this.submitted = false;
         console.log('Unfortunate error ' + err);
       });
   }
