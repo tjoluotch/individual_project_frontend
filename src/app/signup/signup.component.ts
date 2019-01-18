@@ -15,10 +15,19 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() { this.submitted = true; }
+
   //
   postStudent(): void {
+  this.submitted = true;
+  // const jsonStudent = JSON.stringify(this.model);
 
+  this.studentService.addStudent(this.model)
+    .subscribe(data => {
+      console.log('User is saved ' + data);
+    },
+      err => {
+        console.log('Unfortunate error ' + err);
+      });
   }
 
   // TODO: Remove this when we're done
