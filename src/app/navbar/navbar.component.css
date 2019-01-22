@@ -1,5 +1,19 @@
-nav {
-  background-color: #EC7063;
+
+/*navbar */
+.navbar-toggler {
+  outline:none!important;
+  border: none;
+  font-size: 2.2rem;
+  color: #9B59B6 !important;
+}
+
+.nav-link {
+  font-size: 1.6rem;
+  border-bottom: 0.1rem solid #ffffff;
+}
+
+.nav-active {
+  border-bottom: 0.1rem solid #9B59B6;
 }
 
 
