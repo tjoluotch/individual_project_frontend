@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
          window.localStorage.setItem('token', this.jwTokenPure);
          this.router.navigate(['dashboard'])
            .catch(err => {
-             alert('navigation issue');
+             alert('navigation issue ' + err);
            });
         } else {
           alert('You entered wrong credentials, please try again!');
