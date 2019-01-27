@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
 import {Student} from './student';
@@ -12,10 +12,12 @@ export class StudentService {
   constructor(private http: HttpClient) {
 
   }
-  // Headers with the request im sending
+  // Headers with the request im sending so that i get back full http
   httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
+    headers: new HttpHeaders({'Content-Type': 'application/json'}),
+    observe: 'response' as 'body'
   };
+
   // url to Golang API: post a student to DB
   private signupStudentUrl = '/api/signup';
 
@@ -28,8 +30,8 @@ export class StudentService {
   }
 
 
-  loginStudent(student: Student): Observable<Student> {
-    return this.http.post<Student>(this.loginStudentUrl, student, this.httpOptions);
+  loginStudent(student: Student): Observable<HttpResponse<Object>> {
+    return this.http.post<HttpResponse<Object>>(this.loginStudentUrl, student, this.httpOptions);
   }
 
 }

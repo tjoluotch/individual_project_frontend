@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
     this.studentService.loginStudent(this.model)
       .subscribe(data => {
-        console.log('Login Route test ' + data);
+        console.log('Login Route test ' + JSON.stringify(data.body));
       },
         err => {
         console.log('Error on Login route ' + err);
