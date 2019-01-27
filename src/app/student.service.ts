@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
 import {Student} from './student';
+import {JwToken} from './jw-token';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +31,11 @@ export class StudentService {
   }
 
 
-  loginStudent(student: Student): Observable<HttpResponse<Object>> {
-    return this.http.post<HttpResponse<Object>>(this.loginStudentUrl, student, this.httpOptions);
+  loginStudent(student: Student): Observable<HttpResponse<JwToken>> {
+    return this.http.post<HttpResponse<JwToken>>(this.loginStudentUrl, student, this.httpOptions);
+      //.pipe(
+       // catchError
+      //);
   }
 
 }

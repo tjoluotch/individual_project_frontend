@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {StudentService} from '../student.service';
 import {Student} from '../student';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,11 @@ export class LoginComponent implements OnInit {
 
   submitted = false;
   model = new Student();
-  constructor(private studentService: StudentService) { }
+  jwTokenPure;
+  constructor(private studentService: StudentService, private router: Router) { }
 
   ngOnInit() {
+    window.localStorage.removeItem('token');
   }
 
   loginStudent(): void {
@@ -21,14 +24,24 @@ export class LoginComponent implements OnInit {
 
     this.studentService.loginStudent(this.model)
       .subscribe(data => {
-        console.log('Login Route test ' + JSON.stringify(data.body));
+        if (data.status === 200) {
+          this.jwTokenPure = data.body.token;
+        console.log('Successful Login Route ' + this.jwTokenPure);
+         window.localStorage.setItem('token', this.jwTokenPure);
+         this.router.navigate(['dashboard'])
+           .catch(err => {
+             alert('navigation issue');
+           });
+        } else {
+          alert('You entered wrong credentials, please try again!');
+        }
       },
         err => {
         console.log('Error on Login route ' + err);
         });
   }
 
-  // TODO: Remove this when we're done
+  // TODO: Remove this when done
   get diagnostic() { return JSON.stringify(this.model); }
 
 }
