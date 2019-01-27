@@ -17,10 +17,19 @@ export class StudentService {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
   // url to Golang API: post a student to DB
-  private postStudentUrl = '/api/signup';
+  private signupStudentUrl = '/api/signup';
+
+  // url to login a student
+  private loginStudentUrl = '/api/authenticate';
 
 // post request for student signup
   addStudent(student: Student): Observable<Student> {
-    return this.http.post<Student>(this.postStudentUrl, student, this.httpOptions);
+    return this.http.post<Student>(this.signupStudentUrl, student, this.httpOptions);
   }
+
+
+  loginStudent(student: Student): Observable<Student> {
+    return this.http.post<Student>(this.loginStudentUrl, student, this.httpOptions);
+  }
+
 }
