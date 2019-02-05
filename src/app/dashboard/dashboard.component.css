@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif|Raleway:500');
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  background-color: #AF7AC5;
+}
+
+.naming-header {
+  font-family: 'Bree Serif', serif;
+  color: #ECF0F1;
+}
+
+.card {
+  background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
+  font-family: 'Raleway', sans-serif;
+  color: #220862;
+}
+
+.name-card {
+  border-color: #220862;
+}
+
+.id-card {
+  border-color: #220862;
+}
+
+.card-header {
+  background-color: #845EC2;
+}
+
+button {
+  background-color: #220862;
+  color: #ECF0F1;;
+}
+
