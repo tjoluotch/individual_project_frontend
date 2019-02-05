@@ -1,0 +1,23 @@
+<body class="text-center">
+
+<form [formGroup]="phoneCodeForm" (ngSubmit)="sendPhoneCode()" class="form-signin">
+  <i class="fas fa-graduation-cap mb-4 fa-5x" width="72" height="72"></i>
+  <h1 class="h3 mb-3 font-weight-normal">Please enter the code from your text message</h1>
+  <br>
+  <label for="phone_code" class="sr-only">Phone No</label>
+  <input type="phone_code" id="phone_code" name="phone_code" class="form-control" placeholder="6 digit phone code..." required
+    formControlName="phoneCode">
+  <br>
+
+  <button class="btn btn-lg btn-success btn-block" type="submit" id="btn-submit">Enter</button>
+  <br>
+  <div *ngIf="notSubmitted" class="incorrectSub">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Problem!</strong> You've not entered the correct code!!
+    </div>
+  </div>
+
+  <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
+</form>
+
+</body>

@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     window.localStorage.removeItem('token');
+    window.localStorage.removeItem('signK');
   }
 
   loginStudent(): void {
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
           this.jwTokenPure = data.body.token;
         console.log('Successful Login Route ' + this.jwTokenPure);
          window.localStorage.setItem('token', this.jwTokenPure);
-         this.router.navigate(['dashboard'])
+         this.router.navigate(['phone-code'])
            .catch(err => {
              alert('navigation issue ' + err);
            });
