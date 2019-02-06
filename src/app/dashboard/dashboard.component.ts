@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   constructor(private __studentService: StudentService, private __router: Router) { }
 
   ngOnInit() {
-
+    this.getStudent();
   }
 
   getStudent(): void {
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
           // Investigate on using rxjs to map response to class
           this.student = data.body;
         } else {
-
+          console.log('error getting Student');
         }
       });
   }
