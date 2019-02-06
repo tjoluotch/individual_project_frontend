@@ -50,6 +50,10 @@ export class StudentService {
     return localStorage.getItem('token');
   }
 
+  getSignK() {
+    return localStorage.getItem('signK');
+  }
+
   sendPhoneCode(pCode: Object): Observable<HttpResponse<Object>> {
     return this.http.post<HttpResponse<Object>>(this.phoneCodeUrl, pCode, this.httpOptions);
   }
