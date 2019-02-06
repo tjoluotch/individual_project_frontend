@@ -18,7 +18,15 @@ export class DashboardComponent implements OnInit {
   }
 
   getStudent(): void {
-  // TODO: i want to get a student object from the db
-    // TODO: by finding the student through decoding the JWT and sending them back as a response
+    this.__studentService.getStudent()
+      .subscribe(data => {
+        if (data.status === 200) {
+          console.log('Student Gotten Successfully');
+          // Investigate on using rxjs to map response to class
+          this.student = data.body;
+        } else {
+
+        }
+      });
   }
 }

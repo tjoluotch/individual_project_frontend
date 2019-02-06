@@ -29,6 +29,9 @@ export class StudentService {
   // url to check code from phone as a post request
   private phoneCodeUrl = '/api/phonecode';
 
+  //url to get a student as a get request
+  private getStudentUrl = '/api/getstudent';
+
 // post request for student signup
   addStudent(student: Student): Observable<Student> {
     return this.http.post<Student>(this.signupStudentUrl, student, this.httpOptions);
@@ -52,6 +55,10 @@ export class StudentService {
 
   getSignK() {
     return localStorage.getItem('signK');
+  }
+
+  getStudent(): Observable<HttpResponse<Student>> {
+    return this.http.get<HttpResponse<Student>>(this.getStudentUrl, this.httpOptions);
   }
 
   sendPhoneCode(pCode: Object): Observable<HttpResponse<Object>> {
