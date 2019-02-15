@@ -14,6 +14,7 @@ import { PhoneCodeComponent } from './phone-code/phone-code.component';
 import {AuthGuard} from './auth.guard';
 import {StudentService} from './student.service';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { ModulehubComponent } from './modulehub/modulehub.component';
 
 const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent},
@@ -23,7 +24,12 @@ const appRoutes: Routes = [
   },
   { path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'modules',
+    component: ModulehubComponent,
+    canActivate: [AuthGuard],
   },
   { path: 'phone-code', component: PhoneCodeComponent },
   { path: '',
@@ -39,7 +45,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     LoginComponent,
     DashboardComponent,
-    PhoneCodeComponent
+    PhoneCodeComponent,
+    ModulehubComponent
   ],
   imports: [
     RouterModule.forRoot(

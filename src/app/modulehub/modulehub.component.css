@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif|Raleway:500');
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  background-color: #AF7AC5;
+}
+
+
+.add-module {
+  width: 12rem;
+}
+
+.fa-plus {
+  color: #42A948;
+}

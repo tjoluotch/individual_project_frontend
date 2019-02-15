@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {StudentService} from '../student.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Student} from '../student';
 
 @Component({
@@ -29,4 +29,9 @@ export class DashboardComponent implements OnInit {
         }
       });
   }
+
+  goToModules(): void {
+    this.__router.navigate(['modules']);
+  }
+
 }
