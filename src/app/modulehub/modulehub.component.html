@@ -7,5 +7,28 @@
   </div>
 </div>
 
+<div class="form">
+  <form class="form-signin" #loginForm="ngForm">
+    <i class="fas fa-graduation-cap mb-4 fa-5x" width="72" height="72"></i>
+    <h1 class="h3 mb-3 font-weight-normal">Hey There, Ready to Login...</h1>
+    {{diagnostic}}
+    <label for="first_name" class="sr-only">First Name</label>
+    <input type="first_name" id="first_name" name="first_name" class="form-control" placeholder="First Name" required autofocus
+           [(ngModel)]="model.first_name">
+    <br>
+    <label for="student_id" class="sr-only">Student Id</label>
+    <input type="student_id" id="student_id" name="student_id" class="form-control" placeholder="Student Id" required
+           [(ngModel)]="model.student_id">
+    <br>
+    <label for="phone_no" class="sr-only">Phone No</label>
+    <input type="phone_no" id="phone_no" name="phone_no" class="form-control" placeholder="Phone No" required
+           [(ngModel)]="model.phone_no">
+    <br>
+
+    <button class="btn btn-lg btn-success btn-block" type="submit" id="btn-submit" (click)="loginStudent(); loginForm.reset()">Log in</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
+  </form>
+</div>
+
 </body>
 

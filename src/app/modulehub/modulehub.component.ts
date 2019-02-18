@@ -8,6 +8,8 @@ import {listener} from '@angular/core/src/render3';
 })
 export class ModulehubComponent implements OnInit {
 
+  formVisible: boolean;
+
   constructor() { }
 
   ngOnInit() {
@@ -18,5 +20,8 @@ export class ModulehubComponent implements OnInit {
 
     // TODO: Add popup form through child Router outlet and fill in
   }
+
+  // TODO: Remove this when done
+  get diagnostic() { return JSON.stringify(this.model); }
 
 }
