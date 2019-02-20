@@ -1,33 +1,36 @@
 <body>
 
-<br>
-<div (click)="addUModule();" class="card container add-module float-left">
-  <div class="card-body text-center">
-   Add module <i class="fas fa-plus"></i>
+<div class="grid">
+
+  <div class="left-pane">
+
+
+  <div (click)="addUModule();" class="card container add-module float-center">
+    <div class="card-body text-center">
+    Add module <i class="fas fa-plus"></i>
+    </div>
   </div>
-</div>
 
-<div class="form">
-  <form class="form-signin" #loginForm="ngForm">
-    <i class="fas fa-graduation-cap mb-4 fa-5x" width="72" height="72"></i>
-    <h1 class="h3 mb-3 font-weight-normal">Hey There, Ready to Login...</h1>
-    {{diagnostic}}
-    <label for="first_name" class="sr-only">First Name</label>
-    <input type="first_name" id="first_name" name="first_name" class="form-control" placeholder="First Name" required autofocus
-           [(ngModel)]="model.first_name">
-    <br>
-    <label for="student_id" class="sr-only">Student Id</label>
-    <input type="student_id" id="student_id" name="student_id" class="form-control" placeholder="Student Id" required
-           [(ngModel)]="model.student_id">
-    <br>
-    <label for="phone_no" class="sr-only">Phone No</label>
-    <input type="phone_no" id="phone_no" name="phone_no" class="form-control" placeholder="Phone No" required
-           [(ngModel)]="model.phone_no">
-    <br>
+  <div class="form moduleAdd container card text-center float-left" *ngIf="formVisible">
+    <form class="form-signin" #addModuleForm="ngForm">
+      <h5 class="h3 mb-3 font-weight-normal">Add the Module</h5>
+      <button class="btn" (click)="closeModuleBox()">Close</button>
+      <br>
+      {{diagnostic}}
+      <label for="module_name" class="sr-only">Module Name</label>
+      <input type="module_name" id="module_name" name="module_name" class="form-control" placeholder="Module Name" required autofocus
+           [(ngModel)]="model.module_name">
+      <br>
+      <label for="module_notes" class="sr-only">Module Notes</label>
+      <input type="module_notes" id="module_notes" name="module_notes" class="form-control" placeholder="Module Notes" required
+           [(ngModel)]="model.module_notes">
+      <br>
+      <button class="btn btn-lg btn-success btn-block" type="submit" id="btn-submit" (click)="loginStudent(); addModuleForm.reset()">Add module</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
+    </form>
+  </div>
 
-    <button class="btn btn-lg btn-success btn-block" type="submit" id="btn-submit" (click)="loginStudent(); loginForm.reset()">Log in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
-  </form>
+  </div>
 </div>
 
 </body>

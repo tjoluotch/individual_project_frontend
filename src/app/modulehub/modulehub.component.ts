@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {listener} from '@angular/core/src/render3';
+import {Module} from '../module';
 
 @Component({
   selector: 'app-modulehub',
@@ -9,7 +9,7 @@ import {listener} from '@angular/core/src/render3';
 export class ModulehubComponent implements OnInit {
 
   formVisible: boolean;
-
+  model = new Module();
   constructor() { }
 
   ngOnInit() {
@@ -17,8 +17,12 @@ export class ModulehubComponent implements OnInit {
 
   addUModule(): void {
     console.log('clicked module button');
-
+    this.formVisible = true;
     // TODO: Add popup form through child Router outlet and fill in
+  }
+
+  closeModuleBox(): void {
+    this.formVisible =false;
   }
 
   // TODO: Remove this when done

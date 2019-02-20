@@ -1,19 +1,40 @@
 @import url('https://fonts.googleapis.com/css?family=Bree+Serif|Raleway:500');
 
+* { box-sizing: border-box; }
+
 html,
 body {
+  margin: 0;
   height: 100vh;
+  background-color: #AF7AC5;
 }
 
-body {
-  background-color: #AF7AC5;
+
+.grid {
+  display: grid;
+  grid-template-columns: 24% 1fr;
+  padding: 2em;
+}
+
+.left-pane {
+  background: #f7f9f9;
+  padding: 1em;
 }
 
 
 .add-module {
   width: 12rem;
+  margin-bottom: 1rem;
 }
 
 .fa-plus {
   color: #42A948;
+}
+
+.moduleAdd {
+  width: 18rem;
+}
+
+.fa-window-close {
+  color: red;
 }
