@@ -38,3 +38,7 @@ body {
 .fa-window-close {
   color: red;
 }
+
+.right-pane {
+  padding: 1em;
+}

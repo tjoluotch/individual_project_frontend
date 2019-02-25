@@ -4,6 +4,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
 import {Student} from './student';
 import {JwToken} from './jw-token';
+import {Module} from './module';
 
 
 @Injectable({
@@ -29,8 +30,11 @@ export class StudentService {
   // url to check code from phone as a post request
   private phoneCodeUrl = '/api/phonecode';
 
-  //url to get a student as a get request
+  // url to get a student as a get request
   private getStudentUrl = '/api/getstudent';
+
+  // url to get all of a particular students modules
+  private getModulesUrl = '/api/getmodules';
 
 // post request for student signup
   addStudent(student: Student): Observable<Student> {
@@ -63,6 +67,10 @@ export class StudentService {
 
   sendPhoneCode(pCode: Object): Observable<HttpResponse<Object>> {
     return this.http.post<HttpResponse<Object>>(this.phoneCodeUrl, pCode, this.httpOptions);
+  }
+
+  getModules(): Observable<HttpResponse<Module[]>> {
+    return this.http.get<HttpResponse<Module[]>>(this.getModulesUrl, this.httpOptions);
   }
 
 }

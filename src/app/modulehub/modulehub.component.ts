@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Module} from '../module';
+import {StudentService} from '../student.service';
 
 @Component({
   selector: 'app-modulehub',
@@ -10,9 +11,23 @@ export class ModulehubComponent implements OnInit {
 
   formVisible: boolean;
   model = new Module();
-  constructor() { }
+  modules: Module[];
+  constructor(private __studentService: StudentService) { }
 
   ngOnInit() {
+    this.retrieveModules();
+  }
+
+  retrieveModules(): void {
+    this.__studentService.getModules()
+      .subscribe(data => {
+        if (data.status === 200) {
+          console.log('Gotten modules successfully');
+          this.modules = data.body;
+        } else {
+          console.log('Error Getting Modules');
+        }
+      });
   }
 
   addUModule(): void {
@@ -22,7 +37,7 @@ export class ModulehubComponent implements OnInit {
   }
 
   closeModuleBox(): void {
-    this.formVisible =false;
+    this.formVisible = false;
   }
 
   // TODO: Remove this when done
