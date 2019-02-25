@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Module} from '../module';
 import {StudentService} from '../student.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-modulehub',
@@ -12,7 +13,7 @@ export class ModulehubComponent implements OnInit {
   formVisible: boolean;
   model = new Module();
   modules: Module[];
-  constructor(private __studentService: StudentService) { }
+  constructor(private __studentService: StudentService, private __router: Router) { }
 
   ngOnInit() {
     this.retrieveModules();
@@ -34,6 +35,18 @@ export class ModulehubComponent implements OnInit {
     console.log('clicked module button');
     this.formVisible = true;
     // TODO: Add popup form through child Router outlet and fill in
+  }
+
+  saveModule(): void {
+    this.__studentService.addModule(this.model)
+      .subscribe(data => {
+        if (data.status === 200) {
+          console.log('Added module successfully');
+          window.location.reload();
+        } else {
+          console.log('error adding message');
+        }
+      });
   }
 
   closeModuleBox(): void {

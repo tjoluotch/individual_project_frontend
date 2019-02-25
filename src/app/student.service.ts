@@ -36,6 +36,9 @@ export class StudentService {
   // url to get all of a particular students modules
   private getModulesUrl = '/api/getmodules';
 
+  // url to add a module
+  private addModuleUrl = '/api/addmodule';
+
 // post request for student signup
   addStudent(student: Student): Observable<Student> {
     return this.http.post<Student>(this.signupStudentUrl, student, this.httpOptions);
@@ -71,6 +74,10 @@ export class StudentService {
 
   getModules(): Observable<HttpResponse<Module[]>> {
     return this.http.get<HttpResponse<Module[]>>(this.getModulesUrl, this.httpOptions);
+  }
+
+  addModule(module: Module): Observable<HttpResponse<Module>>{
+    return this.http.put<HttpResponse<Module>>(this.addModuleUrl, module, this.httpOptions);
   }
 
 }

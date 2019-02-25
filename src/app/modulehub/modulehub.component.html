@@ -25,43 +25,43 @@
       <input type="module_notes" id="module_notes" name="module_notes" class="form-control" placeholder="Module Notes" required
            [(ngModel)]="model.module_notes">
       <br>
-      <button class="btn btn-lg btn-success btn-block" type="submit" id="btn-submit" (click)="loginStudent(); addModuleForm.reset()">Add module</button>
+      <button class="btn btn-lg btn-success btn-block" type="submit" id="btn-submit" (click)="saveModule(); addModuleForm.reset()">Add module</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
     </form>
   </div>
 
   </div>
 
-  <div class="right-pane">
 
-    <div class="row card-group">
-      <div class="col-4"  *ngFor="let module of modules">
-        <div class="card text-center">
+</div>
 
-          <div class="card-header">
-            {{module.module_name}}
-            <br>
-            <small>id: {{module.module_id}}</small>
-          </div>
+<div class="right-pane">
 
-          <div class="card-block">
-            <h6 class="card-title">Module Notes</h6>
-            <p class="card-text">{{module.module_notes}}</p>
-            <h4 class="card-title">Module Tasks</h4>
-            <p class="card-text">Add module tasks here</p>
-            <a href="#" class="btn btn-primary">Add Task</a>
-          </div>
+  <div class="row card-group">
+    <div class="col-4 cards"  *ngFor="let module of modules">
+      <div class="card text-center">
 
-          <div class="card-footer text-muted">
-            <small>{{module.student_id}}</small>
-          </div>
-
+        <div class="card-header">
+          {{module.module_name}}
+          <br>
+          <small>id: {{module.module_id}}</small>
         </div>
+
+        <div class="card-block">
+          <h6 class="card-title">Module Notes</h6>
+          <p class="card-text">{{module.module_notes}}</p>
+          <h4 class="card-title">Module Tasks</h4>
+          <p class="card-text">Add module tasks here</p>
+          <a href="#" class="btn btn-primary">Add Task</a>
+        </div>
+
+        <div class="card-footer text-muted">
+          <small>{{module.student_id}}</small>
+        </div>
+
       </div>
     </div>
-
   </div>
-
 
 </div>
 
