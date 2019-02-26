@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Module} from '../module';
 import {StudentService} from '../student.service';
 import {Router} from '@angular/router';
+import {AddTaskModel} from '../add-task-model';
 
 @Component({
   selector: 'app-modulehub',
@@ -9,11 +10,20 @@ import {Router} from '@angular/router';
   styleUrls: ['./modulehub.component.css']
 })
 export class ModulehubComponent implements OnInit {
-
-  formVisible: boolean;
-  model = new Module();
-  modules: Module[];
   constructor(private __studentService: StudentService, private __router: Router) { }
+
+  // TODO: Remove this when done
+  get diagnostic() { return JSON.stringify(this.model); }
+
+  get taskDiagnostic() { return JSON.stringify(this.taskModel); }
+
+  moduleFormVisible: boolean;
+  taskFormVisible: boolean;
+  model = new Module();
+  taskModel = new AddTaskModel();
+  modules: Module[];
+
+  selectedModule: Module;
 
   ngOnInit() {
     this.retrieveModules();
@@ -33,8 +43,20 @@ export class ModulehubComponent implements OnInit {
 
   addUModule(): void {
     console.log('clicked module button');
-    this.formVisible = true;
-    // TODO: Add popup form through child Router outlet and fill in
+    this.moduleFormVisible = true;
+  }
+
+  closeModuleBox(): void {
+    this.moduleFormVisible = false;
+  }
+
+  addTaskForm(): void {
+    console.log('clicked add task button');
+    this.taskFormVisible = true;
+  }
+
+  closeTaskForm(): void {
+    this.taskFormVisible = false;
   }
 
   saveModule(): void {
@@ -49,11 +71,9 @@ export class ModulehubComponent implements OnInit {
       });
   }
 
-  closeModuleBox(): void {
-    this.formVisible = false;
+  onSelect(module: Module): void {
+    this.selectedModule = module;
+    this.taskModel.module_id = this.selectedModule.module_id;
   }
-
-  // TODO: Remove this when done
-  get diagnostic() { return JSON.stringify(this.model); }
 
 }

@@ -11,10 +11,16 @@
     </div>
   </div>
 
-  <div class="form moduleAdd container card text-center float-left" *ngIf="formVisible">
+    <div (click)="addTaskForm();" class="card container add-module float-center">
+      <div class="card-body text-center">
+        Add Task <i class="fas fa-plus"></i>
+      </div>
+    </div>
+
+  <div class="form moduleAdd container card text-center float-left" *ngIf="moduleFormVisible">
     <form class="form-signin" #addModuleForm="ngForm">
       <h5 class="h3 mb-3 font-weight-normal">Add the Module</h5>
-      <button class="btn" (click)="closeModuleBox()">Close</button>
+      <button class="btn" (click)="closeModuleBox();">Close</button>
       <br>
       {{diagnostic}}
       <label for="module_name" class="sr-only">Module Name</label>
@@ -25,20 +31,59 @@
       <input type="module_notes" id="module_notes" name="module_notes" class="form-control" placeholder="Module Notes" required
            [(ngModel)]="model.module_notes">
       <br>
-      <button class="btn btn-lg btn-success btn-block" type="submit" id="btn-submit" (click)="saveModule(); addModuleForm.reset()">Add module</button>
+      <button class="btn btn-lg btn-success btn-block" type="submit" id="btn-submit" (click)="saveModule(); addModuleForm.reset();">Add module</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
     </form>
   </div>
 
   </div>
 
+  <!-- Add task form-->
+  <div class="form card add-task-form" *ngIf="taskFormVisible; selectedModule">
+    <form class="form-inline" #addTaskForm="ngForm">
+
+      <label class="sr-only" for="module_id"></label>
+      <div class="input-group mb-2 mr-sm-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Module Id</div>
+        </div>
+        <input type="module_id" class="form-control" id="module_id" name="module_id" placeholder="" [(ngModel)]="taskModel.module_id">
+      </div>
+
+
+      <label class="sr-only" for="task_description"></label>
+      <div class="input-group mb-2 mr-sm-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Task Description</div>
+        </div>
+        <input type="task_description" class="form-control" id="task_description" name="task_description" placeholder="" [(ngModel)]="taskModel.task_description">
+      </div>
+
+      <label for="task_status"></label>
+      <div class="form-select input-group mb-2 mr-sm-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Task Status</div>
+        </div>
+        <select class="form-control" id="task_status" type="task_status" name="task_status" [(ngModel)]="taskModel.task_status">
+          <option>Not Started</option>
+          <option>Working on it</option>
+          <option>Finished</option>
+        </select>
+      </div>
+
+      <button class="btn mx-auto" (click)="closeTaskForm();">Close</button>
+      <button type="submit" class="btn btn-success mx-auto mb-2">Add Task</button>
+    </form>
+  </div>
 
 </div>
+
+{{taskDiagnostic}}
 
 <div class="right-pane">
 
   <div class="row card-group">
-    <div class="col-4 cards"  *ngFor="let module of modules">
+    <div class="col-4 cards"  *ngFor="let module of modules" (click)="onSelect(module)">
       <div class="card text-center">
 
         <div class="card-header">
@@ -51,8 +96,6 @@
           <h6 class="card-title">Module Notes</h6>
           <p class="card-text">{{module.module_notes}}</p>
           <h4 class="card-title">Module Tasks</h4>
-          <p class="card-text">Add module tasks here</p>
-          <a href="#" class="btn btn-primary">Add Task</a>
         </div>
 
         <div class="card-footer text-muted">

@@ -46,3 +46,9 @@ body {
 .cards {
   padding-top: 1em;
 }
+
+.add-task-form {
+  margin: 1em;
+  background: #AF7AC5;
+  border-color: #AF7AC5;
+}
