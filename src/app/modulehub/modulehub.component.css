@@ -52,3 +52,13 @@ body {
   background: #AF7AC5;
   border-color: #AF7AC5;
 }
+
+li {
+  list-style-type: none;
+}
+
+.task-list-card {
+  border-color: #220862;
+  border-width: medium;
+  margin-bottom: 0.5em;
+}

@@ -5,6 +5,8 @@ import {Observable, of} from 'rxjs';
 import {Student} from './student';
 import {JwToken} from './jw-token';
 import {Module} from './module';
+import {AddTaskModel} from './add-task-model';
+import {EditTaskModel} from './edit-task-model';
 
 
 @Injectable({
@@ -38,6 +40,12 @@ export class StudentService {
 
   // url to add a module
   private addModuleUrl = '/api/addmodule';
+
+  // url to add a Task
+  private addTaskUrl = '/api/addtask';
+
+  // url to edit task
+  private editTaskUrl = '/api/editask';
 
 // post request for student signup
   addStudent(student: Student): Observable<Student> {
@@ -76,8 +84,16 @@ export class StudentService {
     return this.http.get<HttpResponse<Module[]>>(this.getModulesUrl, this.httpOptions);
   }
 
-  addModule(module: Module): Observable<HttpResponse<Module>>{
+  addModule(module: Module): Observable<HttpResponse<Module>> {
     return this.http.put<HttpResponse<Module>>(this.addModuleUrl, module, this.httpOptions);
+  }
+
+  addTask(taskWithModule: AddTaskModel): Observable<HttpResponse<Object>> {
+    return this.http.put<HttpResponse<Object>>(this.addTaskUrl, taskWithModule, this.httpOptions);
+  }
+
+  editTask(taskAndModuleId: EditTaskModel): Observable<HttpResponse<Object>> {
+    return this.http.put<HttpResponse<Object>>(this.editTaskUrl, taskAndModuleId, this.httpOptions);
   }
 
 }

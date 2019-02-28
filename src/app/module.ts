@@ -6,6 +6,6 @@ export class Module {
     public student_id?: string,
     public module_name?: string,
     public module_notes?: string,
-    public module_tasks?: [Task]
+    public tasks?: [Task]
   ) { }
 }
