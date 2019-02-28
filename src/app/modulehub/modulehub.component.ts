@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {AddTaskModel} from '../add-task-model';
 import {Task} from '../task';
 import {EditTaskModel} from '../edit-task-model';
+import {CwModuleId} from '../cw-module-id';
 
 @Component({
   selector: 'app-modulehub',
@@ -21,6 +22,8 @@ export class ModulehubComponent implements OnInit {
 
   get editTaskDiagnostic() { return JSON.stringify(this.editTaskModel); }
 
+  get addCWDiagnostic() { return JSON.stringify(this.addCWModel); }
+
   moduleFormVisible: boolean;
   taskFormVisible: boolean;
   model = new Module();
@@ -28,8 +31,11 @@ export class ModulehubComponent implements OnInit {
   editTaskModel = new EditTaskModel();
   modules: Module[];
 
+
   editTaskFormVisible: boolean;
 
+  addCWModel = new CwModuleId();
+  addCWFormVisible: boolean;
 
   selectedModule: Module;
   selectedParentModuleForTaskEdit: Module;
@@ -51,17 +57,7 @@ export class ModulehubComponent implements OnInit {
         }
       });
   }
-
-  /*getTasks(modules: Module[]): void {
-    // Add task
-    modules.forEach(function (m) {
-      this.tasks.forEach(function (t) {
-        t. = m.module_tasks;
-      });
-    });
-  }*/
-
-
+  
   addUModule(): void {
     console.log('clicked module button');
     this.moduleFormVisible = true;
@@ -117,6 +113,15 @@ export class ModulehubComponent implements OnInit {
     this.editTaskModel.task_description = this.selectedTask.task_description;
   }
 
+   onSelectAddCW(module: Module): void {
+    this.addCWModel.module_id = module.module_id;
+    this.addCWFormVisible = true;
+   }
+
+   closeAddCWForm(): void {
+    this.addCWFormVisible = false;
+   }
+
   saveTask(): void {
     this.__studentService.addTask(this.taskModel)
       .subscribe(data => {
@@ -139,6 +144,10 @@ export class ModulehubComponent implements OnInit {
           console.log('Error editing task');
         }
       });
+  }
+
+  saveCWToDB(): void {
+
   }
 
 

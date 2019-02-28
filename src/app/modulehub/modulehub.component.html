@@ -82,7 +82,7 @@
     <form class="form-inline" #editTaskForm="ngForm">
 
       <fieldset disabled>
-      <label class="sr-only" for="task_description"></label>
+      <label class="sr-only" for="edit_task_id"></label>
       <div class="input-group mb-2 mr-sm-2">
         <div class="input-group-prepend">
           <div class="input-group-text">Task I.D</div>
@@ -91,7 +91,7 @@
       </div>
       </fieldset>
 
-      <label class="sr-only" for="task_description"></label>
+      <label class="sr-only" for="edit_task_description"></label>
       <div class="input-group mb-2 mr-sm-2">
         <div class="input-group-prepend">
           <div class="input-group-text">Task Description</div>
@@ -99,7 +99,7 @@
         <input type="edit_task_description" class="form-control" id="edit_task_description" name="edit_task_description" placeholder="" [(ngModel)]="editTaskModel.task_description">
       </div>
 
-      <label for="task_status"></label>
+      <label for="edit_task_status"></label>
       <div class="form-select input-group mb-2 mr-sm-2">
         <div class="input-group-prepend">
           <div class="input-group-text">Task Status</div>
@@ -116,12 +116,49 @@
     </form>
   </div>
 
+  <!-- Add CW form-->
+  <div class="form card add-task-form" *ngIf="addCWFormVisible;">
+    <form class="form-inline" #addCWForm="ngForm">
+
+      <fieldset disabled>
+        <label class="sr-only" for="cw_module_id"></label>
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Mod I.d</div>
+          </div>
+          <input type="cw_module_id" class="form-control" id="cw_module_id" name="cw_module_id" placeholder="" [(ngModel)]="addCWModel.module_id">
+        </div>
+      </fieldset>
+
+      <label class="sr-only" for="cw_description"></label>
+      <div class="input-group mb-2 mr-sm-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">CW description</div>
+        </div>
+        <input type="cw_description" class="form-control" id="cw_description" name="cw_description" placeholder="" [(ngModel)]="addCWModel.cw_description">
+      </div>
+
+      <label class="sr-only" for="cw_due"></label>
+      <div class="input-group mb-2 mr-sm-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Due</div>
+        </div>
+        <input type="cw_due" class="form-control" id="cw_due" name="cw_due" placeholder="" [(ngModel)]="addCWModel.cw_date">
+      </div>
+
+      <button class="btn mx-auto" (click)="closeAddCWForm();">Close</button>
+      <button type="submit" class="btn btn-success mx-auto mb-2" (click)="saveCWToDB(); addCWForm.reset();">Add CW</button>
+    </form>
+  </div>
+
 </div>
 <p>Add task diagnostic</p>
 {{addTaskDiagnostic}}
 <p>Edit task Diagnostic</p>
 {{editTaskDiagnostic}}
 <p>Add CW diagnostic</p>
+{{addCWDiagnostic}}
+
 <div class="right-pane">
 
   <div class="row card-group">
@@ -153,7 +190,7 @@
         </div>
 
         <div class="card-footer text-muted">
-          <small>{{module.student_id}} <button class="btn btn-danger btn-sm add-cw-button">Add CW</button></small>
+          <small>{{module.student_id}} <button class="btn btn-danger btn-sm add-cw-button" (click)="onSelectAddCW(module);">Add CW</button></small>
         </div>
 
       </div>
