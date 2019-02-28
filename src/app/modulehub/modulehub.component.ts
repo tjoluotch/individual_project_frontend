@@ -57,7 +57,7 @@ export class ModulehubComponent implements OnInit {
         }
       });
   }
-  
+
   addUModule(): void {
     console.log('clicked module button');
     this.moduleFormVisible = true;
@@ -137,7 +137,7 @@ export class ModulehubComponent implements OnInit {
   editTask(): void {
     this.__studentService.editTask(this.editTaskModel)
       .subscribe(data => {
-        if (data.status === 200){
+        if (data.status === 200) {
           console.log('Edited Task Successfully');
           window.location.reload();
         } else {
@@ -147,7 +147,15 @@ export class ModulehubComponent implements OnInit {
   }
 
   saveCWToDB(): void {
-
+    this.__studentService.addCoursework(this.addCWModel)
+      .subscribe(data => {
+        if (data.status === 200) {
+          console.log('Added Coursework Successfully');
+          window.location.reload();
+        } else {
+          console.log('Error Adding Coursework');
+        }
+      });
   }
 
 

@@ -63,6 +63,12 @@ li {
   margin-bottom: 0.5em;
 }
 
-.add-cw-button {
+.cw-card-block {
+  background: #220862;
+  color: #ECF0F1;
+  margin-bottom: 0.4em;
+}
 
+.space {
+  margin-bottom: 0.5em;
 }

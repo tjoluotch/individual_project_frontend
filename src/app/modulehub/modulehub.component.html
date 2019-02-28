@@ -177,6 +177,7 @@
           <h6 class="card-title">Module Tasks</h6>
           <!-- Task Styling-->
           <li *ngFor="let task of module.tasks">
+
             <div class="card task-list-card" (click)="onSelectEditTask(task, module)">
               <div class="card-block">
                 <p>Task: {{task.task_description}}</p>
@@ -184,9 +185,18 @@
                 <p>Id: {{task.task_id}}</p>
                 <button class="btn btn-success mx-auto" (click)="editTaskFormOpen();">Edit</button>
               </div>
-
             </div>
           </li>
+        </div>
+
+        <div class="card cw-card-block">
+          <div class="space">
+            <h6>Module Coursework</h6>
+            <li *ngFor="let coursework of module.cwks">
+              <p>Description: {{coursework.cw_description}}</p>
+              <p>Due {{coursework.cw_date}}</p>
+              <p><small>Id: {{coursework.cw_id}}</small></p>
+            </div>
         </div>
 
         <div class="card-footer text-muted">

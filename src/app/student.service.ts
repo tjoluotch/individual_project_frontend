@@ -7,6 +7,7 @@ import {JwToken} from './jw-token';
 import {Module} from './module';
 import {AddTaskModel} from './add-task-model';
 import {EditTaskModel} from './edit-task-model';
+import {CwModuleId} from './cw-module-id';
 
 
 @Injectable({
@@ -46,6 +47,9 @@ export class StudentService {
 
   // url to edit task
   private editTaskUrl = '/api/editask';
+
+  // url to add coursework
+  private addCourseworkUrl = '/api/addcwk';
 
 // post request for student signup
   addStudent(student: Student): Observable<Student> {
@@ -94,6 +98,10 @@ export class StudentService {
 
   editTask(taskAndModuleId: EditTaskModel): Observable<HttpResponse<Object>> {
     return this.http.put<HttpResponse<Object>>(this.editTaskUrl, taskAndModuleId, this.httpOptions);
+  }
+
+  addCoursework(cwWithModuleID: CwModuleId): Observable<HttpResponse<Object>> {
+    return this.http.put<HttpResponse<Object>>(this.addCourseworkUrl, cwWithModuleID, this.httpOptions);
   }
 
 }
