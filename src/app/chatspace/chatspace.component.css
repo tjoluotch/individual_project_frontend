@@ -1,0 +1,15 @@
+
+* { box-sizing: border-box; }
+
+html,
+body {
+  margin: 0;
+  height: 100vh;
+  background: #AF7AC5;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 24% 1fr;
+  padding: 1em;
+}
