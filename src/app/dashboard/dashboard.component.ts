@@ -34,4 +34,8 @@ export class DashboardComponent implements OnInit {
     this.__router.navigate(['modules']);
   }
 
+  goToChatSpace(): void {
+    this.__router.navigate(['chatspace']);
+  }
+
 }
