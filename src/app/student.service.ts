@@ -8,6 +8,7 @@ import {Module} from './module';
 import {AddTaskModel} from './add-task-model';
 import {EditTaskModel} from './edit-task-model';
 import {CwModuleId} from './cw-module-id';
+import {Chat} from './chat';
 
 
 @Injectable({
@@ -50,6 +51,9 @@ export class StudentService {
 
   // url to add coursework
   private addCourseworkUrl = '/api/addcwk';
+
+  // url to create a chat group
+  private createChatGroupUrl = '/api/createchat';
 
 // post request for student signup
   addStudent(student: Student): Observable<Student> {
@@ -102,6 +106,10 @@ export class StudentService {
 
   addCoursework(cwWithModuleID: CwModuleId): Observable<HttpResponse<Object>> {
     return this.http.put<HttpResponse<Object>>(this.addCourseworkUrl, cwWithModuleID, this.httpOptions);
+  }
+
+  createChatGroup(chat: Chat): Observable<HttpResponse<Chat>> {
+    return this.http.put<HttpResponse<Chat>>(this.createChatGroupUrl, chat, this.httpOptions);
   }
 
 }

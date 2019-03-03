@@ -12,15 +12,15 @@
 
     <div class="form addChatForm card container text-center float-left" *ngIf="createChatFormVisible">
       <form class="form-signin" #createChatForm="ngForm">
-        <h5 class="h3 mb-3 font-weight-normal card-header">Add the chat</h5>
+        <h5 class="h3 mb-3 font-weight-normal card-header">Add the Group</h5>
         <br>
-        {{diagnostic}}
+        {{createChatDiagnostic}}
         <input type="chat_name" id="chat_name" name="chat_name" class="form-control" placeholder="Enter Chat Name" required autofocus
-               >
+               [(ngModel)]="chatModel.chat_name">
         <br>
         <div id="buttonsContainer">
-          <button class="btn" (click)="closeCreateChatForm();" id="closeAddChatFormButton">Close</button>
-          <button class="btn btn btn-success btn-block" type="submit" id="submitChatFormButton" (click)=" createChatForm.reset();">Add Revision Chat Group</button>
+          <button class="btn" (click)="closeCreateChatForm(); createChatForm.reset();" id="closeAddChatFormButton">Close</button>
+          <button class="btn btn btn-success btn-block" type="submit" id="submitChatFormButton" (click)="addChatGroup(); createChatForm.reset();">Add Revision Chat Group</button>
         </div>
         <br>
       </form>
