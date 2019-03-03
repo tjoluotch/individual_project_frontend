@@ -55,6 +55,9 @@ export class StudentService {
   // url to create a chat group
   private createChatGroupUrl = '/api/createchat';
 
+  // url to get all chat groups the member is in
+  private getMyChatGroupsUrl = '/api/getmychats';
+
 // post request for student signup
   addStudent(student: Student): Observable<Student> {
     return this.http.post<Student>(this.signupStudentUrl, student, this.httpOptions);
@@ -110,6 +113,10 @@ export class StudentService {
 
   createChatGroup(chat: Chat): Observable<HttpResponse<Chat>> {
     return this.http.put<HttpResponse<Chat>>(this.createChatGroupUrl, chat, this.httpOptions);
+  }
+
+  getChatGroups(): Observable<HttpResponse<Object>> {
+
   }
 
 }
