@@ -1,15 +1,51 @@
 <body>
 
   <div class="grid">
-    <div class="card">
-      <h3 class="card-header">Featured</h3>
+
+    <div class="card text-center createChatBox">
+      <h3 class="card-header">Create Chat</h3>
       <div class="card-block">
-        <h4 class="card-title">Special title treatment</h4>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <p class="card-text">Create revision group chats, to interact with other studently members</p>
+        <button class="btn btn-danger" (click)="openCreateChatFrom();">Create Revision Group Chat</button>
       </div>
     </div>
+
+    <div class="form addChatForm card container text-center float-left" *ngIf="createChatFormVisible">
+      <form class="form-signin" #createChatForm="ngForm">
+        <h5 class="h3 mb-3 font-weight-normal card-header">Add the chat</h5>
+        <br>
+        {{diagnostic}}
+        <input type="chat_name" id="chat_name" name="chat_name" class="form-control" placeholder="Enter Chat Name" required autofocus
+               >
+        <br>
+        <div id="buttonsContainer">
+          <button class="btn" (click)="closeCreateChatForm();" id="closeAddChatFormButton">Close</button>
+          <button class="btn btn btn-success btn-block" type="submit" id="submitChatFormButton" (click)=" createChatForm.reset();">Add Revision Chat Group</button>
+        </div>
+        <br>
+      </form>
+    </div>
+
   </div>
+
+<div class="grid">
+
+  <div class="card text-center">
+    <h3 class="card-header">Available Revision Groups</h3>
+  </div>
+
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="card-block">
+      <h6><b>Click on a group to enter...</b></h6>
+      This is where the List of all revision groups by name will go via /getchats endpoint.
+    </div>
+  </div>
+
+</div>
 
 
 </body>

@@ -13,3 +13,20 @@ body {
   grid-template-columns: 24% 1fr;
   padding: 1em;
 }
+
+.addChatForm {
+  width: 55%;
+}
+
+.createChatBox {
+  height: inherit;
+}
+
+#submitChatFormButton, #closeAddChatFormButton {
+  width: auto;
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+
+

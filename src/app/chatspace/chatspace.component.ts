@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatspaceComponent implements OnInit {
 
+  createChatFormVisible: boolean;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  openCreateChatFrom(): void {
+    this.createChatFormVisible = true;
+  }
+
+  closeCreateChatForm(): void {
+    this.createChatFormVisible = false;
   }
 
 }
