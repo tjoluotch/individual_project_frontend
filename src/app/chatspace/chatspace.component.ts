@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Chat} from '../chat';
 import {StudentService} from '../student.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-chatspace',
@@ -16,7 +17,7 @@ export class ChatspaceComponent implements OnInit {
 
   get createChatDiagnostic() { return JSON.stringify(this.chatModel); }
 
-  constructor(private __studentService: StudentService) { }
+  constructor(private __studentService: StudentService, private __router: Router) { }
 
   ngOnInit() {
     this.getMyChatGroups();
@@ -52,6 +53,11 @@ export class ChatspaceComponent implements OnInit {
           console.log('Error Adding chat to chatspace, check server');
         }
       });
+  }
+
+  goToChatPage(chatID: string): void {
+    window.localStorage.setItem('getChat', chatID);
+    this.__router.navigate(['chatpage']);
   }
 
 }

@@ -16,6 +16,7 @@ import {StudentService} from './student.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { ModulehubComponent } from './modulehub/modulehub.component';
 import { ChatspaceComponent } from './chatspace/chatspace.component';
+import { ChatpageComponent } from './chatpage/chatpage.component';
 
 const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent},
@@ -37,6 +38,11 @@ const appRoutes: Routes = [
     component: ChatspaceComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'chatpage',
+    component: ChatpageComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'phone-code', component: PhoneCodeComponent },
   { path: '',
     redirectTo: '/signup',
@@ -53,7 +59,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     PhoneCodeComponent,
     ModulehubComponent,
-    ChatspaceComponent
+    ChatspaceComponent,
+    ChatpageComponent
   ],
   imports: [
     RouterModule.forRoot(

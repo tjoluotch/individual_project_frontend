@@ -28,13 +28,12 @@
 
     <div class="card text-center">
       <h3 class="card-header">Available Revision Groups</h3>
-    </div>
-
-    <div class="card">
       <div class="card-block">
         <h6><b>Here are the groups your in...</b></h6>
-        <div class="" *ngFor="let chat of chatGroups">
+        <div class="listOfGroups" *ngFor="let chat of chatGroups">
           <p>{{chat.chat_name}}</p>
+          <button class="btn btn-sm btn-success" (click)="goToChatPage(chat.chat_id)">view</button>
+          <button class="btn btn-sm btn-danger">delete</button>
         </div>
       </div>
     </div>
