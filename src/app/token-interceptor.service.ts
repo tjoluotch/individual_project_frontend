@@ -15,7 +15,8 @@ export class TokenInterceptorService implements HttpInterceptor {
     const tokenizedReq = req.clone({
       setHeaders: {
         Authorization: `Bearer ${authService.getToken()}`,
-        signK: `${authService.getSignK()}`
+        signK: `${authService.getSignK()}`,
+        getChat: `${authService.getChatID()}`
       }
     });
 

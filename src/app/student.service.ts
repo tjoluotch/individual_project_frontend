@@ -83,6 +83,10 @@ export class StudentService {
     return localStorage.getItem('signK');
   }
 
+  getChatID() {
+    return localStorage.getItem('getChat');
+  }
+
   getStudent(): Observable<HttpResponse<Student>> {
     return this.http.get<HttpResponse<Student>>(this.getStudentUrl, this.httpOptions);
   }
