@@ -1,6 +1,6 @@
 <body>
 
-  <div class="grid">
+  <div class="wrapper">
 
     <div class="card text-center createChatBox">
       <h3 class="card-header">Create Chat</h3>
@@ -26,26 +26,19 @@
       </form>
     </div>
 
-  </div>
-
-<div class="grid">
-
-  <div class="card text-center">
-    <h3 class="card-header">Available Revision Groups</h3>
-  </div>
-
-</div>
-
-<div class="grid">
-
-  <div class="card">
-    <div class="card-block">
-      <h6><b>Click on a group to enter...</b></h6>
-      This is where the List of all revision groups by name will go via /getchats endpoint.
+    <div class="card text-center">
+      <h3 class="card-header">Available Revision Groups</h3>
     </div>
+
+    <div class="card">
+      <div class="card-block">
+        <h6><b>Here are the groups your in...</b></h6>
+        <div class="" *ngFor="let chat of chatGroups">
+          <p>{{chat.chat_name}}</p>
+        </div>
+      </div>
+    </div>
+
   </div>
-
-</div>
-
 
 </body>

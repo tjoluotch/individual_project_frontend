@@ -115,8 +115,8 @@ export class StudentService {
     return this.http.put<HttpResponse<Chat>>(this.createChatGroupUrl, chat, this.httpOptions);
   }
 
-  getChatGroups(): Observable<HttpResponse<Object>> {
-
+  getChatGroups(): Observable<HttpResponse<Chat[]>> {
+    return this.http.get<HttpResponse<Chat[]>>(this.getMyChatGroupsUrl, this.httpOptions);
   }
 
 }

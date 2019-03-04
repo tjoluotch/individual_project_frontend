@@ -12,11 +12,26 @@ export class ChatspaceComponent implements OnInit {
   createChatFormVisible: boolean;
   chatModel = new Chat();
 
+  chatGroups: Chat[];
+
   get createChatDiagnostic() { return JSON.stringify(this.chatModel); }
 
   constructor(private __studentService: StudentService) { }
 
   ngOnInit() {
+    this.getMyChatGroups();
+  }
+
+  getMyChatGroups(): void {
+    this.__studentService.getChatGroups()
+      .subscribe(data => {
+        if (data.status === 200){
+          console.log('Gotten chat groups successfully');
+          this.chatGroups = data.body;
+        } else {
+          console.log('Error Getting Chat groups for student, check server');
+        }
+      });
   }
 
   openCreateChatFrom(): void {
