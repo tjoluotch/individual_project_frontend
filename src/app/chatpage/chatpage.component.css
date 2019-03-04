@@ -5,3 +5,36 @@ body {
   background: #AF7AC5;
   padding: 1em;
 }
+
+.chat-body {
+  overflow-y: scroll;
+  height: 400px;
+}
+
+.sendArea {
+  margin-top: 1em;
+  background: #ebdef0;
+  -webkit-border-top-left-radius: 50px;
+  -webkit-border-top-right-radius: 50px;
+  -moz-border-radius-topleft: 50px;
+  -moz-border-radius-topright: 50px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  display: inline-block;
+}
+
+.blockquote-footer {
+  color: #220862;
+}
+
+cite {
+  color: gold;
+}
+
+input {
+  width: 50em;
+}
+
+.overallChatBox {
+  width: 40em;
+}
