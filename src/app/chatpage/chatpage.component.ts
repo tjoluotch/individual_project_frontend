@@ -17,6 +17,8 @@ export class ChatpageComponent implements OnInit {
 
   msgContent = new FormControl('');
 
+  messages: Message[];
+
   constructor(private __studentService: StudentService) { }
 
   ngOnInit() {
@@ -29,20 +31,23 @@ export class ChatpageComponent implements OnInit {
         if (data.status === 200) {
           console.log('Gotten chat by id successfully');
           this.chatModel = data.body;
-          this.messagesPresent();
+          this.messages = data.body.messages;
         } else {
           console.log('Issue getting chat by id');
         }
       });
   }
 
-  // check if there are any messages in chatModel
-  messagesPresent(): boolean {
-    if (this.chatModel.messages = undefined) {
-      return false;
-    } else {
-      return true;
-    }
+  sendMessage(): void {
+    this.__studentService.sendMessage(this.sendMessageModel)
+      .subscribe(data => {
+        if (data.status === 200) {
+          console.log('successfully sent message');
+          window.location.reload();
+        } else {
+          console.log('Message did not send');
+        }
+      });
   }
 
   get sendMessageDiagnostic() {

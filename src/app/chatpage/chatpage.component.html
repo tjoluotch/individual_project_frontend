@@ -7,31 +7,34 @@
     </div>
     <div class="card-body chat-body">
       <p class="card-text studenlty-group">Studently Group</p>
-      <ul class="list-group list-group-flush" *ngFor="let message of chatModel.messages">
+      <ul class="list-group list-group-flush">
 
         <li class="list-group-item">
-          <div class="card">
+          <div class="card msg-card" *ngFor="let message of messages">
           <div class="card-body">
-            This is some text within a card body. 1
-
+            {{message.msg_content}}
             <blockquote class="blockquote mb-0">
               <br>
-              <footer class="blockquote-footer">Time sent <cite title="Source Title">User</cite></footer>
+              <footer class="blockquote-footer">Time sent:{{message.sent_at}} <cite title="Source Title">By:{{message.sender.first_name}}</cite></footer>
             </blockquote>
           </div>
         </div>
         </li>
 
       </ul>
-      <div class="alert alert-warning" role="alert" *ngIf="messagesPresent()">
+
+      <!--
+      <div class="alert alert-warning" role="alert" *ngIf="messageNotPresent">
         oops... No messages have been sent yet, why not be the first person.
       </div>
+      -->
+
     </div>
 
     <div class="card-body sendArea">
       <div class="input-group">
         <input type="text" [formControl]="msgContent" [(ngModel)]="sendMessageModel.msg_content">
-        <button class="btn btn-success" type="button">send</button>
+        <button class="btn btn-success" type="button" (click)="sendMessage(); msgContent.reset()">send</button>
       </div>
     </div>
 
