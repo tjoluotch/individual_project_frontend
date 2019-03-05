@@ -58,6 +58,9 @@ export class StudentService {
   // url to get all chat groups the member is in
   private getMyChatGroupsUrl = '/api/getmychats';
 
+  // url to get chat by the chat id
+  private getChatByIdUrl = '/api/getchatbyid';
+
 // post request for student signup
   addStudent(student: Student): Observable<Student> {
     return this.http.post<Student>(this.signupStudentUrl, student, this.httpOptions);
@@ -121,6 +124,10 @@ export class StudentService {
 
   getChatGroups(): Observable<HttpResponse<Chat[]>> {
     return this.http.get<HttpResponse<Chat[]>>(this.getMyChatGroupsUrl, this.httpOptions);
+  }
+
+  getChatById(): Observable<HttpResponse<Chat>> {
+    return this.http.get<HttpResponse<Chat>>(this.getChatByIdUrl, this.httpOptions);
   }
 
 }

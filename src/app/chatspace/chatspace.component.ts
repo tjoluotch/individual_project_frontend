@@ -26,7 +26,7 @@ export class ChatspaceComponent implements OnInit {
   getMyChatGroups(): void {
     this.__studentService.getChatGroups()
       .subscribe(data => {
-        if (data.status === 200){
+        if (data.status === 200) {
           console.log('Gotten chat groups successfully');
           this.chatGroups = data.body;
         } else {

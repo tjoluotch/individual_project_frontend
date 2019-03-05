@@ -2,12 +2,12 @@
 
   <div class="card container overallChatBox">
     <div class="card-header">
-      chatId will go here
-      <h5 class="card-title text-center">Chat title will go here</h5>
+      <small>Group id: {{chatModel.chat_id}}</small>
+      <h6 class="card-title text-center">{{chatModel.chat_name}}</h6>
     </div>
     <div class="card-body chat-body">
-      <p class="card-text">Studently Group Chat</p>
-      <ul class="list-group list-group-flush">
+      <p class="card-text studenlty-group">Studently Group</p>
+      <ul class="list-group list-group-flush" *ngFor="let message of chatModel.messages">
 
         <li class="list-group-item">
           <div class="card">
@@ -22,39 +22,10 @@
         </div>
         </li>
 
-        <li class="list-group-item">
-          <div class="card">
-            <div class="card-body">
-              This is some text within a card body. 2
-            </div>
-          </div>
-        </li>
-
-        <li class="list-group-item">
-          <div class="card">
-            <div class="card-body">
-              This is some text within a card body. 3
-            </div>
-          </div>
-        </li>
-
-        <li class="list-group-item">
-          <div class="card">
-            <div class="card-body">
-              This is some text within a card body. 4
-            </div>
-          </div>
-        </li>
-
-        <li class="list-group-item">
-          <div class="card">
-            <div class="card-body">
-              This is some text within a card body. 5
-            </div>
-          </div>
-        </li>
-
       </ul>
+      <div class="alert alert-warning" role="alert" *ngIf="messagesPresent()">
+        oops... No messages have been sent yet, why not be the first person.
+      </div>
     </div>
 
     <div class="card-body sendArea">
@@ -65,7 +36,6 @@
    </span>
       </div>
     </div>
-
 
   </div>
 
