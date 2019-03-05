@@ -11,7 +11,7 @@
     <input type="edit_grp_name" id="edit_grp_name" name="edit_grp_name" class="form-control" id="editNameInput" placeholder="New name" required
      [(ngModel)]="editGroupNameModel.chat_name">
     <br>
-    <button class="btn btn-danger btn-block change-name-button float-center" type="submit" id="btn-submit" (click)="editNameForm.reset();">Change name</button>
+    <button class="btn btn-danger btn-block change-name-button float-center" type="submit" (click)="editGrpName(); editNameForm.reset();">Change name</button>
     {{editGroupNameDiagnostic}}
     <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
   </form>

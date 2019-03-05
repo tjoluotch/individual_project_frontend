@@ -66,7 +66,7 @@ export class StudentService {
   private sendMessageUrl = '/api/sendmsg';
 
   // url to edit a chat name
-  private editGroupChatName = '/api/edit_chat_name';
+  private editGroupChatNameUrl = '/api/edit_chat_name';
 
 // post request for student signup
   addStudent(student: Student): Observable<Student> {
@@ -139,6 +139,10 @@ export class StudentService {
 
   sendMessage(msg: Message): Observable<HttpResponse<Object>> {
     return this.http.put<HttpResponse<Object>>(this.sendMessageUrl, msg, this.httpOptions);
+  }
+
+  editGrpName(chat: Chat): Observable<HttpResponse<Object>> {
+    return this.http.put<HttpResponse<Object>>(this.editGroupChatNameUrl, chat, this.httpOptions);
   }
 
 }

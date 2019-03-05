@@ -55,6 +55,18 @@ export class ChatpageComponent implements OnInit {
       });
   }
 
+  editGrpName(): void {
+    this.__studentService.editGrpName(this.editGroupNameModel)
+      .subscribe(data => {
+        if (data.status === 200) {
+          console.log('successfully edited group chat name');
+          window.location.reload();
+        } else {
+          console.log('Error, group name was not edited');
+        }
+      });
+  }
+
   get sendMessageDiagnostic() {
     return JSON.stringify(this.sendMessageModel);
   }
