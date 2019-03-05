@@ -31,6 +31,10 @@ cite {
   color: gold;
 }
 
+.left-pane {
+
+}
+
 input {
   width: 30em;
   margin-right: 1em;
@@ -49,4 +53,23 @@ input {
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
+}
+
+.change-name-button {
+  width: 10em;
+  margin-left: 4em;
+}
+
+.form-edit-name {
+  text-align: center;
+  width: 18em;
+}
+
+#editNameInput {
+  width: 18em;
+}
+
+.editNameButton {
+  margin-right: 1em;
+  margin-left: 1em;
 }

@@ -19,6 +19,11 @@ export class ChatpageComponent implements OnInit {
 
   messages: Message[];
 
+  openEditName = true;
+  openAddMember: boolean;
+
+  editGroupNameModel = new Chat();
+
   constructor(private __studentService: StudentService) { }
 
   ngOnInit() {
@@ -54,4 +59,17 @@ export class ChatpageComponent implements OnInit {
     return JSON.stringify(this.sendMessageModel);
   }
 
+  get editGroupNameDiagnostic() {
+    return JSON.stringify(this.editGroupNameModel);
+  }
+
+  editNameButtonClicked(): void {
+    this.openEditName = true;
+    this.openAddMember = false;
+  }
+
+  addMemberButtonClicked(): void {
+    this.openAddMember = true;
+    this.openEditName = false;
+  }
 }

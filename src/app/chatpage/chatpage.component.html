@@ -1,9 +1,42 @@
 <body>
 
+<div class="left-pane">
+
+<div class="form editName card text-center float-left" *ngIf="openEditName">
+  <form class="form-edit-name" #editNameForm="ngForm">
+    <h5 class="h3 mb-3 font-weight-normal">Change group name</h5>
+    <br>
+
+    <label for="edit_grp_name" class="sr-only">New Name</label>
+    <input type="edit_grp_name" id="edit_grp_name" name="edit_grp_name" class="form-control" id="editNameInput" placeholder="New name" required
+     [(ngModel)]="editGroupNameModel.chat_name">
+    <br>
+    <button class="btn btn-danger btn-block change-name-button float-center" type="submit" id="btn-submit" (click)="editNameForm.reset();">Change name</button>
+    {{editGroupNameDiagnostic}}
+    <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
+  </form>
+</div>
+
+  <div class="form addMember card text-center float-left" *ngIf="openAddMember">
+    <form class="form-edit-name" #addMemberForm="ngForm">
+      <h5 class="h3 mb-3 font-weight-normal">Add Member</h5>
+      <br>
+
+      <label for="module_notes" class="sr-only">New Name</label>
+      <input type="module_notes" id="module_notes" name="module_notes" class="form-control" id="nameChangeInput" placeholder="New name" required
+      >
+      <br>
+      <button class="btn btn-success btn-block change-name-button float-center" type="submit" id="btn-submit" (click)="addMemberForm.reset();">Change name</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
+    </form>
+  </div>
+
+</div>
+
   <div class="card container overallChatBox">
     <div class="card-header">
       <small>Group id: {{chatModel.chat_id}}</small>
-      <h6 class="card-title text-center">{{chatModel.chat_name}}</h6>
+      <h6 class="card-title text-center">{{chatModel.chat_name}} <button class="btn btn-danger btn-sm editNameButton" (click)="editNameButtonClicked();">change name</button> <button class="btn btn-success btn-sm addMemButton" (click)="addMemberButtonClicked();">add member</button></h6>
     </div>
     <div class="card-body chat-body">
       <p class="card-text studenlty-group">Studently Group</p>
