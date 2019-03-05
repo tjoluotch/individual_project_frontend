@@ -30,14 +30,13 @@
 
     <div class="card-body sendArea">
       <div class="input-group">
-        <input type="text" class="form-control">
-        <span class="input-group-btn">
+        <input type="text" [formControl]="msgContent" [(ngModel)]="sendMessageModel.msg_content">
         <button class="btn btn-success" type="button">send</button>
-   </span>
       </div>
     </div>
 
   </div>
+  {{sendMessageDiagnostic}}
 
 </body>
 

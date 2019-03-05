@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {StudentService} from '../student.service';
 import {Chat} from '../chat';
+import {Message} from '../message';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-chatpage',
@@ -10,6 +12,10 @@ import {Chat} from '../chat';
 export class ChatpageComponent implements OnInit {
 
   chatModel: Chat;
+
+  sendMessageModel = new Message();
+
+  msgContent = new FormControl('');
 
   constructor(private __studentService: StudentService) { }
 
@@ -37,6 +43,10 @@ export class ChatpageComponent implements OnInit {
     } else {
       return true;
     }
+  }
+
+  get sendMessageDiagnostic() {
+    return JSON.stringify(this.sendMessageModel);
   }
 
 }

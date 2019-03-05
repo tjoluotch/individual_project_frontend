@@ -32,7 +32,8 @@ cite {
 }
 
 input {
-  width: 50em;
+  width: 30em;
+  margin-right: 1em;
 }
 
 .overallChatBox {
