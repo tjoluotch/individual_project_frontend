@@ -65,6 +65,9 @@ export class StudentService {
   // url to send a message in the group chat
   private sendMessageUrl = '/api/sendmsg';
 
+  // url to edit a chat name
+  private editGroupChatName = '/api/edit_chat_name';
+
 // post request for student signup
   addStudent(student: Student): Observable<Student> {
     return this.http.post<Student>(this.signupStudentUrl, student, this.httpOptions);
