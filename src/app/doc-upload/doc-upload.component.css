@@ -1,0 +1,15 @@
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: #AF7AC5;
+  padding: 1em;
+}
+
+.doc-card {
+  padding: 1em;
+}
+
+#view-btn {
+  padding-right: 0.2em;
+}

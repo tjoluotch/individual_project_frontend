@@ -16,4 +16,9 @@ export class NavbarComponent implements OnInit {
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
+
+  logoutClicked() {
+    window.localStorage.clear();
+    window.location.reload();
+  }
 }

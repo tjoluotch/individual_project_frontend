@@ -38,4 +38,8 @@ export class DashboardComponent implements OnInit {
     this.__router.navigate(['chatspace']);
   }
 
+  goToUploads(): void {
+    this.__router.navigate(['doc-upload']);
+  }
+
 }

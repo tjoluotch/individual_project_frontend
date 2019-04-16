@@ -10,6 +10,7 @@ import {EditTaskModel} from './edit-task-model';
 import {CwModuleId} from './cw-module-id';
 import {Chat} from './chat';
 import {Message} from './message';
+import {Document} from './document';
 
 
 @Injectable({
@@ -67,6 +68,15 @@ export class StudentService {
 
   // url to edit a chat name
   private editGroupChatNameUrl = '/api/edit_chat_name';
+
+  // url to get a particular students documents
+  private getUploadsUrl = '/api/getuploads';
+
+  // url to get all students
+  private getAllStudentsUrl = '/api/getallstudents';
+
+  // url to add member to chat
+  private addMemberToChatUrl = '/api/addstudenttochat';
 
 // post request for student signup
   addStudent(student: Student): Observable<Student> {
@@ -133,12 +143,24 @@ export class StudentService {
     return this.http.get<HttpResponse<Chat[]>>(this.getMyChatGroupsUrl, this.httpOptions);
   }
 
+  getUploads(): Observable<HttpResponse<Document[]>> {
+    return this.http.get<HttpResponse<Document[]>>(this.getUploadsUrl, this.httpOptions);
+  }
+
+  getAllStudents(): Observable<HttpResponse<Student[]>> {
+    return this.http.get<HttpResponse<Student[]>>(this.getAllStudentsUrl, this.httpOptions);
+  }
+
   getChatById(): Observable<HttpResponse<Chat>> {
     return this.http.get<HttpResponse<Chat>>(this.getChatByIdUrl, this.httpOptions);
   }
 
   sendMessage(msg: Message): Observable<HttpResponse<Object>> {
     return this.http.put<HttpResponse<Object>>(this.sendMessageUrl, msg, this.httpOptions);
+  }
+
+  addMember(std: Student): Observable<HttpResponse<Object>> {
+    return this.http.put<HttpResponse<Object>>(this.addMemberToChatUrl, std, this.httpOptions);
   }
 
   editGrpName(chat: Chat): Observable<HttpResponse<Object>> {

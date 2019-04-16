@@ -21,13 +21,18 @@
           <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">DashBoard</a>
         </li>
         <li class="nav-item mx-2 nav-active">
-          <a routerLink="/modules" class="nav-link">Module Hub</a>
+          <a routerLink="/modules" routerLinkActive="active" class="nav-link">Module Hub</a>
         </li>
         <li class="nav-item mx-2 nav-active">
-          <a routerLink="/chatspace" class="nav-link">Chat Space</a>
+          <a routerLink="/chatspace" routerLinkActive="active" class="nav-link">Chat Space</a>
+        </li>
+        <li class="nav-item mx-2 nav-active">
+          <a routerLink="/doc-upload" routerLinkActive="active" class="nav-link">Doc Space</a>
         </li>
       </ul>
     </div>
+
+    <button class="btn btn-danger" (click)="logoutClicked()">Logout</button>
   </nav>
 
 </header>

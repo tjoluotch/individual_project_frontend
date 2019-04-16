@@ -22,11 +22,16 @@
       <h5 class="h3 mb-3 font-weight-normal">Add Member</h5>
       <br>
 
-      <label for="module_notes" class="sr-only">New Name</label>
-      <input type="module_notes" id="module_notes" name="module_notes" class="form-control" id="nameChangeInput" placeholder="New name" required
-      >
+      <label for="add_member_fn" class="sr-only">First Name</label>
+      <input type="add_member_fn"  name="add_member_fn" class="form-control" id="add_member_fn" placeholder="Their 1st name" required
+      [(ngModel)]="addMemberModel.first_name">
+
+      <label for="add_member_id" class="sr-only">friend's student Id</label>
+      <input type="add_member_id"  name="add_member_id" class="form-control" id="add_member_id" placeholder="Their ID" required
+             [(ngModel)]="addMemberModel.student_id">
+
       <br>
-      <button class="btn btn-success btn-block change-name-button float-center" type="submit" id="btn-submit" (click)="addMemberForm.reset();">Change name</button>
+      <button class="btn btn-success btn-block change-name-button float-center" type="submit" id="btn-submit" (click)="addMember(); addMemberForm.reset();">Add Member</button>
       <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
     </form>
   </div>
@@ -73,6 +78,6 @@
 
   </div>
   {{sendMessageDiagnostic}}
-
+  {{addMemberDiagnostic}}
 </body>
 

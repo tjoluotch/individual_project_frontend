@@ -73,3 +73,11 @@ input {
   margin-right: 1em;
   margin-left: 1em;
 }
+
+#add_member_fn {
+  width: 18em;
+}
+
+#add_member_id {
+  width: 18em;
+}

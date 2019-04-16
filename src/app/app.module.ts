@@ -17,6 +17,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
 import { ModulehubComponent } from './modulehub/modulehub.component';
 import { ChatspaceComponent } from './chatspace/chatspace.component';
 import { ChatpageComponent } from './chatpage/chatpage.component';
+import { DocUploadComponent } from './doc-upload/doc-upload.component';
 
 const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent},
@@ -37,6 +38,11 @@ const appRoutes: Routes = [
     path: 'chatspace',
     component: ChatspaceComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'doc-upload',
+    component: DocUploadComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'chatpage',
@@ -60,7 +66,8 @@ const appRoutes: Routes = [
     PhoneCodeComponent,
     ModulehubComponent,
     ChatspaceComponent,
-    ChatpageComponent
+    ChatpageComponent,
+    DocUploadComponent
   ],
   imports: [
     RouterModule.forRoot(

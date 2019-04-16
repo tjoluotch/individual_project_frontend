@@ -3,6 +3,7 @@ import {StudentService} from '../student.service';
 import {Chat} from '../chat';
 import {Message} from '../message';
 import {FormControl} from '@angular/forms';
+import {Student} from '../student';
 
 @Component({
   selector: 'app-chatpage',
@@ -19,15 +20,33 @@ export class ChatpageComponent implements OnInit {
 
   messages: Message[];
 
+  students: Student[];
+
   openEditName = true;
   openAddMember: boolean;
 
   editGroupNameModel = new Chat();
 
+  addMemberModel = new Student();
+
   constructor(private __studentService: StudentService) { }
 
   ngOnInit() {
     this.getChatById();
+    this.retrieveStudents();
+  }
+
+  retrieveStudents(): void {
+    this.__studentService.getAllStudents()
+      .subscribe(data => {
+        if (data.status === 200) {
+          console.log('Gotten Students successfully');
+          this.students = data.body;
+          // console.log(JSON.stringify(this.modules[0].module_tasks));
+        } else {
+          console.log('Error Getting Students');
+        }
+      });
   }
 
   getChatById(): void {
@@ -66,6 +85,22 @@ export class ChatpageComponent implements OnInit {
         }
       });
   }
+
+  addMember(): void {
+    this.__studentService.addMember(this.addMemberModel)
+      .subscribe(data => {
+        if (data.status === 200) {
+          console.log('successfully added member');
+          window.location.reload();
+        } else {
+          console.log('Member was not added');
+        }
+      });
+  }
+
+  get addMemberDiagnostic() {
+    return JSON.stringify(this.addMemberModel);
+}
 
   get sendMessageDiagnostic() {
     return JSON.stringify(this.sendMessageModel);

@@ -1,0 +1,35 @@
+<body>
+
+  <div class="row">
+    <div class="card col-md-6 offset-md-3 text-center">
+      <h3 class="card-header">Choose a File for your Space</h3>
+      <form (ngSubmit)="onUpload()">
+        <div class="form-group">
+          <input type="file" (change)="onFileChanged($event)"  />
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <br>
+
+
+<div class="row">
+  <div class="card col-md-6 offset-md-3 text-center">
+    <h6 class="card-header">Your docs</h6>
+  </div>
+</div>
+  <br>
+
+<div class="row">
+  <div class="card col-md-2 doc-card" *ngFor="let doc of docs">
+    <h6 class="card-header">{{doc.doc_name}}</h6>
+    <div class="card-body">
+      <a class="btn btn-primary" href="{{doc.url}}" id="view-btn">View</a>
+      <!-- <button class="btn btn-success">Share with</button> -->
+    </div>
+  </div>
+</div>
+</body>
